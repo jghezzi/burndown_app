@@ -5,4 +5,6 @@ class Consultant < ActiveRecord::Base
 	has_many :projects, through: :consultant_projects
 	has_many :billings
 
+	accepts_nested_attributes_for :sei_loc
+
 end

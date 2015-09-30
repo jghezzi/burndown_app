@@ -15,6 +15,7 @@ class ConsultantsController < ApplicationController
   # GET /consultants/new
   def new
     @consultant = Consultant.new
+    @consultant.build_sei_loc
   end
 
   # GET /consultants/1/edit

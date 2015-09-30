@@ -1,0 +1,27 @@
+= form_for(@consultant) do |f|
+  - if @consultant.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@consultant.errors.count, "error")
+        prohibited this consultant from being saved:
+      %ul
+        - @consultant.errors.full_messages.each do |message|
+          %li= message
+
+  
+
+  .field
+    = f.label :first_name
+    %br/
+    = f.text_field :first_name
+  .field
+    = f.label :last_name
+    %br/
+    = f.text_field :last_name
+    %br/
+    = f.label "Location"
+    %br/
+    = f.select :sei_loc_id, SeiLoc.all.collect { |s| [s.name, s.id] }  
+
+  .actions
+    = f.submit

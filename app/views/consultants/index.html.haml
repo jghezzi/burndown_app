@@ -1,0 +1,21 @@
+%br/
+%br/
+%h1 Listing consultants
+%table
+  %thead
+    %tr
+      %th First name
+      %th Last name
+      %th Sei loc
+      %th{:colspan => "3"}
+  %tbody
+    - @consultants.each do |consultant|
+      %tr
+        %td= consultant.first_name
+        %td= consultant.last_name
+        %td= consultant.sei_loc.name
+        %td= link_to 'Show', consultant
+        %td= link_to 'Edit', edit_consultant_path(consultant)
+        %td= link_to 'Destroy', consultant, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Consultant', new_consultant_path
