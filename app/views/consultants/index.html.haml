@@ -1,23 +1,126 @@
-%br/
-%br/
-%h1 Listing consultants
-%table
-  %thead
-    %tr
-      %th First name
-      %th Last name
-      %th Sei loc
-      %th{:colspan => "3"}
-  %tbody
-    - @consultants.each do |consultant|
-      %tr
-        %td= consultant.first_name
-        %td= consultant.last_name
-        %td= consultant.sei_loc.name
-        %td= link_to 'Assign to Project', assign_consultant_project_path(consultant)
-        %td= link_to 'Find Projects', projects_path(consultant)
-        %td= link_to 'Show', consultant
-        %td= link_to 'Edit', edit_consultant_path(consultant)
-        %td= link_to 'Destroy', consultant, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Consultant', new_consultant_path
+.row
+  .large-12.columns
+    .row
+      .large-12.columns
+        %nav.top-bar{"data-topbar" => ""}
+          %ul.title-area
+            %li.name
+              %h1
+                %a{:href => "#"}
+                  Top Bar Title
+            %li.toggle-topbar.menu-icon
+              %a{:href => "#"}
+                %span menu
+          %section.top-bar-section
+            %ul.right
+              %li.divider
+              %li.has-dropdown
+                %a{:href => "#"} Main Item 1
+                %ul.dropdown
+                  %li
+                    %label Section Name
+                  %li.has-dropdown
+                    %a{:href => "#"} Has Dropdown, Level 1
+                    %ul.dropdown
+                      %li
+                        %a{:href => "#"} Dropdown Options
+                      %li
+                        %a{:href => "#"} Dropdown Options
+                      %li
+                        %a{:href => "#"} Level 2
+                      %li
+                        %a{:href => "#"} Subdropdown Option
+                      %li
+                        %a{:href => "#"} Subdropdown Option
+                      %li
+                        %a{:href => "#"} Subdropdown Option
+                  %li
+                    %a{:href => "#"} Dropdown Option
+                  %li
+                    %a{:href => "#"} Dropdown Option
+                  %li.divider
+                  %li
+                    %label Section Name
+                  %li
+                    %a{:href => "#"} Dropdown Option
+                  %li
+                    %a{:href => "#"} Dropdown Option
+                  %li
+                    %a{:href => "#"} Dropdown Option
+                  %li.divider
+                  %li
+                    %a{:href => "#"} See all →
+              %li.divider
+              %li
+                %a{:href => "#"} Main Item 2
+              %li.divider
+              %li.has-dropdown
+                %a{:href => "#"} Main Item 3
+                %ul.dropdown
+                  %li
+                    %a{:href => "#"} Dropdown Option
+                  %li
+                    %a{:href => "#"} Dropdown Option
+                  %li
+                    %a{:href => "#"} Dropdown Option
+                  %li.divider
+                  %li
+                    %a{:href => "#"} See all →
+    .row
+      .large-4.small-12.columns
+        %img{:src => "http://placehold.it/500x500&text=Logo"}/
+        .hide-for-small.panel
+          %h3 Header
+          %h5.subheader
+            Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis.
+        %a{:href => "#"}
+          .panel.callout.radius
+            %h6 99  items in your cart
+      .large-8.columns
+        .row
+          - @consultants.each do |consultant|
+            .large-4.small-6.columns
+              %img{:src => "http://nicenicejpg.com/1000/1000"}/
+              .panel
+                %ul.button-group.radius
+                  %li
+                    %a.button.radius.teeny.warning{:href => "#", :title => "Edit Consultant"}
+                      %i.fi-.fi-pencil.bigger-icon>
+                  %li
+                    %a.button.radius.teeny.success{:href => "#", :title => "Assign to Project"}
+                      %i.fi-.fi-torsos-all.bigger-icon>
+                  %li
+                    %a.button.radius.teeny.alert{:href => "#", :title => "Destroy Consultant"}
+                      %i.fi-trash.bigger-icon>
+                = consultant.first_name + " " + consultant.last_name
+                %br/
+                = consultant.sei_loc.name
+                %br/
+                  
+        .row
+          .large-12.columns
+            .panel
+              .row
+                .large-2.small-6.columns
+                  %img{:src => "http://placehold.it/300x300&text=Site Owner"}/
+                .large-10.small-6.columns
+                  %strong
+                    This Site Is Managed By
+                    %hr/
+                  Risus ligula, aliquam nec fermentum vitae, sollicitudin eget urna. Donec dignissim nibh fermentum odio ornare sagittis
+    %footer.row
+      .large-12.columns
+        %hr/
+        .row
+          .large-6.columns
+            %p © Copyright no one at all. Go to town.
+          .large-6.columns
+            %ul.inline-list.right
+              %li
+                %a{:href => "#"} Link 1
+              %li
+                %a{:href => "#"} Link 2
+              %li
+                %a{:href => "#"} Link 3
+              %li
+                %a{:href => "#"} Link 4

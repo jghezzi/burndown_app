@@ -10,7 +10,26 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require bootstrap-datepicker
- *= require_tree .
+ *
  *= require_self
+ *= require foundation_and_overrides.scss
  */
+
+ @import 'foundation-icons';
+
+.bigger-icon {
+	font-size: 15px;
+	color: white;
+}
+
+.style5 {
+  font-size: 30px;
+  color: rgba(245,159,26,0.8);
+  text-shadow: 1px 4px 6px #FFF,0 0 0 #000,1px 4px 6px #FFF;
+}
+
+.style2 {
+    font-size: 70px;
+    color: #2DAEBF;
+    text-shadow: 0px 1px 0px #0092b3,0px 2px 0px #0087a6,0px 3px 0px #008099,0px 4px 0px #00758c,0px 5px 0px #555,0px 6px 0px #006a80,0px 0px 0px #006073,0px 8px 7px #005566;
+}

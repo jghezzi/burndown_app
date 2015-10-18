@@ -10,7 +10,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @projects = Project.find(params[:id])
+    @consultant = Consultant.find(params[:id])
+    @consultant_projects = @consultant.projects
   end
 
   # GET /projects/new
