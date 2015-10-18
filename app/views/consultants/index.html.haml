@@ -14,6 +14,8 @@
         %td= consultant.first_name
         %td= consultant.last_name
         %td= consultant.sei_loc.name
+        %td= link_to 'Assign to Project', assign_consultant_project_path(consultant)
+        %td= link_to 'Find Projects', projects_path(consultant)
         %td= link_to 'Show', consultant
         %td= link_to 'Edit', edit_consultant_path(consultant)
         %td= link_to 'Destroy', consultant, method: :delete, data: { confirm: 'Are you sure?' }

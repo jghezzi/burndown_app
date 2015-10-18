@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
+  
+  root 'consultants#index'
+
   resources :billings
+
+  resources :consultant_projects do
+    member do
+      get 'assign'
+    end
+  end
 
   resources :sei_locs
 

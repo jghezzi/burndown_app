@@ -10,6 +10,8 @@ class ConsultantsController < ApplicationController
   # GET /consultants/1
   # GET /consultants/1.json
   def show
+    @consultant = Consultant.find(params[:id])
+    @projects = @consultant.projects
   end
 
   # GET /consultants/new
@@ -70,6 +72,6 @@ class ConsultantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def consultant_params
-      params.require(:consultant).permit(:first_name, :last_name, :sei_loc_id)
+      params.require(:consultant).permit(:first_name, :last_name, :sei_loc_id, consultant_projects_attributes: [:consultant_id, :project_id])
     end
 end

@@ -8,8 +8,14 @@
         - @project.errors.full_messages.each do |message|
           %li= message
   .field
-    = f.label :name
+    = f.label "bbb"
     %br/
     = f.text_field :name
+    %br/
+    = f.fields_for :billings do |ff|
+      = ff.label :hours
+      = ff.text_field :hours
+      = ff.label :bill_date
+      = ff.date_field :bill_date
   .actions
     = f.submit

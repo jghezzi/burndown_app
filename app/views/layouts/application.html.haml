@@ -1,6 +1,7 @@
 !!!
 %html{:lang => "en"}
   %head
+  
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:charset => "utf-8"}/
     %meta{:content => "IE=Edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
@@ -28,34 +29,34 @@
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = javascript_include_tag "application"
   %body
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container
-          %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand{:href => "#"} Consultant Burndown
-          .container.nav-collapse
-            %ul.nav
-              %li= link_to "Link1", "/path1"
-              %li= link_to "Link2", "/path2"
-              %li= link_to "Link3", "/path3"
-          / /.nav-collapse
+    / .navbar.navbar-fixed-top
+    /   .navbar-inner
+    /     .container
+    /       %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+    /         %span.icon-bar
+    /         %span.icon-bar
+    /         %span.icon-bar
+    /       %a.brand{:href => "#"} Consultant Burndown
+    /       .container.nav-collapse
+    /         %ul.nav
+    /           %li= link_to "Link1", "/path1"
+    /           %li= link_to "Link2", "/path2"
+    /           %li= link_to "Link3", "/path3"
+    /       / /.nav-collapse
     .container
       .row
         .span9
           = bootstrap_flash
           = yield
-        .span3
-          .well.sidebar-nav
-            %h3 Sidebar
-            %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link1", "/path1"
-              %li= link_to "Link2", "/path2"
-              %li= link_to "Link3", "/path3"
-          / /.well
+        / .span3
+        /   .well.sidebar-nav
+        /     %h3 Sidebar
+        /     %ul.nav.nav-list
+        /       %li.nav-header Sidebar
+        /       %li= link_to "Link1", "/path1"
+        /       %li= link_to "Link2", "/path2"
+        /       %li= link_to "Link3", "/path3"
+        /   / /.well
         / /span
       / /row
       %footer

@@ -5,4 +5,7 @@ class Project < ActiveRecord::Base
 	has_many :consultants, through: :consultant_projects
 	has_many :billings
 
+	accepts_nested_attributes_for :billings
+	accepts_nested_attributes_for :consultant_projects
+	accepts_nested_attributes_for :consultants
 end

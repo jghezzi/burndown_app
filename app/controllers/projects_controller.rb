@@ -10,11 +10,12 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @projects = Project.find(params[:id])
   end
 
   # GET /projects/new
   def new
-    @project = Project.new
+    @project = Project.find(1)
   end
 
   # GET /projects/1/edit
@@ -69,6 +70,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name)
+      params.require(:project).permit(:name, billings_attributes: [:hours, :bill_date], consultant_projects_attributes: [:consultant_id, :project_id], consultants_attributes: [:first_name, :last_name, :sei_loc_id])
     end
 end

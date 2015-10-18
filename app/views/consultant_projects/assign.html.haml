@@ -1,0 +1,10 @@
+= form_for @consultant_project do |f|
+	= @consultant.last_name
+	- @assignments.each do |a|
+		= a.name
+	%br/
+	%br/
+	= f.hidden_field :consultant_id, :value => @consultant.id
+	= f.collection_select(:project_id, @to_assign, :id, :name)
+	= f.submit "Assign Consultant"
+

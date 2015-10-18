@@ -10,8 +10,7 @@
   %tbody
     - @billings.each do |billing|
       %tr
-        %td= billing.date_from
-        %td= billing.date_to
+        %td= billing.bill_date
         %td= billing.hours
         %td= billing.project_id
         %td= link_to 'Show', billing

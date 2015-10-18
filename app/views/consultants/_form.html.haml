@@ -7,9 +7,6 @@
       %ul
         - @consultant.errors.full_messages.each do |message|
           %li= message
-
-  
-
   .field
     = f.label :first_name
     %br/
@@ -22,6 +19,7 @@
     = f.label "Location"
     %br/
     = f.select :sei_loc_id, SeiLoc.all.collect { |s| [s.name, s.id] }  
+    %br/
 
   .actions
     = f.submit
