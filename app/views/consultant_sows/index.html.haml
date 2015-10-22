@@ -1,0 +1,23 @@
+%h1 Listing consultant_sows
+
+%table
+  %thead
+    %tr
+      %th Consultant
+      %th Sow
+      %th
+      %th
+      %th
+
+  %tbody
+    - @consultant_sows.each do |consultant_sow|
+      %tr
+        %td= consultant_sow.consultant_id
+        %td= consultant_sow.sow_id
+        %td= link_to 'Show', consultant_sow
+        %td= link_to 'Edit', edit_consultant_sow_path(consultant_sow)
+        %td= link_to 'Destroy', consultant_sow, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Consultant sow', new_consultant_sow_path

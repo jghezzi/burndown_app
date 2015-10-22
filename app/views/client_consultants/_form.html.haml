@@ -1,0 +1,9 @@
+= simple_form_for(@client_consultant) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :client_id
+    = f.input :consultant
+
+  .form-actions
+    = f.button :submit

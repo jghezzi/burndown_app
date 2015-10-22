@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   
+  resources :consultant_sows
+
+  resources :client_consultants
+
+  resources :sows
+
   root 'consultants#index'
 
   resources :billings

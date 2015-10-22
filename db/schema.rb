@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151010124729) do
+ActiveRecord::Schema.define(version: 20151022172059) do
 
   create_table "billings", force: true do |t|
     t.float    "hours"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20151010124729) do
     t.datetime "updated_at"
     t.integer  "consultant_id"
     t.date     "bill_date"
+  end
+
+  create_table "client_consultants", force: true do |t|
+    t.integer  "client_id"
+    t.integer  "consultant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "clients", force: true do |t|
@@ -31,6 +38,13 @@ ActiveRecord::Schema.define(version: 20151010124729) do
   create_table "consultant_projects", force: true do |t|
     t.integer  "consultant_id"
     t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "consultant_sows", force: true do |t|
+    t.integer  "consultant_id"
+    t.integer  "sow_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -54,6 +68,17 @@ ActiveRecord::Schema.define(version: 20151010124729) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "sows", force: true do |t|
+    t.date     "begin_date"
+    t.date     "end_date"
+    t.float    "sow_hours"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "bill_rate",  precision: 2, scale: 2
+    t.integer  "client_id"
+    t.integer  "project_id"
   end
 
 end

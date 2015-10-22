@@ -1,0 +1,9 @@
+= simple_form_for(@consultant_sow) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :consultant_id
+    = f.input :sow_id
+
+  .form-actions
+    = f.button :submit

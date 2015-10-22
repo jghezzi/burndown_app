@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Consultant:
+  = @consultant_sow.consultant_id
+%p
+  %b Sow:
+  = @consultant_sow.sow_id
+
+= link_to 'Edit', edit_consultant_sow_path(@consultant_sow)
+\|
+= link_to 'Back', consultant_sows_path

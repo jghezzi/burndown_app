@@ -1,6 +1,10 @@
 class Consultant < ActiveRecord::Base
 
 	belongs_to :sei_loc
+	has_many :consultant_sows
+	has_many :sows, through: :consultant_sows	
+	has_many :client_consultants
+	has_many :clients, through: :client_consultants
 	has_many :consultant_projects
 	has_many :projects, through: :consultant_projects
 	has_many :billings

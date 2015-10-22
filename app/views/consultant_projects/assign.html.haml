@@ -1,10 +1,21 @@
-= form_for @consultant_project do |f|
-	= @consultant.last_name
-	- @assignments.each do |a|
-		= a.name
-	%br/
-	%br/
-	= f.hidden_field :consultant_id, :value => @consultant.id
-	= f.collection_select(:project_id, @to_assign, :id, :name)
-	= f.submit "Assign Consultant"
+.row
+	.large-4.small-12.columns
+		.hide-for-small.panel
+			%h3 SEI Consultants
+			%h5.subheader
+				Here are some consultants.
+		%a{:href => "#"}
+			.panel.callout.radius
+				%h6 ALERTS
+	.large-8.columns
+		.row
+			= form_for @consultant_project do |f|
+				= @consultant.last_name
+				- @assignments.each do |a|
+					= a.name
+				%br/
+				%br/
+				= f.hidden_field :consultant_id, :value => @consultant.id
+				= f.collection_select(:project_id, @to_assign, :id, :name)
+				= f.submit "Assign Consultant"
 
