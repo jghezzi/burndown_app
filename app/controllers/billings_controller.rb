@@ -1,8 +1,16 @@
 class BillingsController < ApplicationController
   before_action :set_billing, only: [:show, :edit, :update, :destroy]
 
+
   # GET /billings
   # GET /billings.json
+
+  def bill
+    @consultant = Consultant.find(params[:id])
+    @billing = Billing.new
+  end
+
+
   def index
     @billings = Billing.all
   end
@@ -69,6 +77,6 @@ class BillingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def billing_params
-      params.require(:billing).permit(:bill_date, :hours, :project_id, :consultant_id)
+      params.require(:billing).permit(:bill_date, :hours, :project_id, :consultant_id, :sow_id)
     end
 end

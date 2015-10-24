@@ -1,7 +1,26 @@
 = form_for(@sow) do |f|
-  = f.error_notification
+  - if @sow.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@sow.errors.count, "error")
+        prohibited this project from being saved:
+      %ul
+        - @sow.errors.full_messages.each do |message|
+          %li= message
 
-  .form-inputs
-
-  .form-actions
-    = f.button :submit
+  .field
+    Select Client
+    = f.select :client_id, Client.all.collect { |c| [c.name, c.id]}
+    Select Project
+    = f.select :project_id, Project.all.collect { |p| [p.name, p.id]}
+    From
+    = f.date_field :begin_date
+    To
+    = f.date_field :end_date
+    Total Hours
+    = f.number_field :sow_hours
+    Hourly Bill Rate
+    = f.number_field :bill_rate
+    
+  .actions
+    = f.submit

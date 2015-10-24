@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    @project = Project.find(1)
+    @project = Project.new
   end
 
   # GET /projects/1/edit

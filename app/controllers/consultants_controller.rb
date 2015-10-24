@@ -3,6 +3,7 @@ class ConsultantsController < ApplicationController
 
   # GET /consultants
   # GET /consultants.json
+
   def index
     @consultants = Consultant.all
   end
@@ -72,6 +73,6 @@ class ConsultantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def consultant_params
-      params.require(:consultant).permit(:first_name, :last_name, :sei_loc_id, consultant_projects_attributes: [:consultant_id, :project_id])
+      params.require(:consultant).permit(:first_name, :last_name, :sei_loc_id, consultant_projects_attributes: [:consultant_id, :project_id], billings_attributes: [:bill_date, :hours, :project_id, :consultant_id, :sow_id])
     end
 end

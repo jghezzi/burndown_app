@@ -9,7 +9,10 @@ class Consultant < ActiveRecord::Base
 	has_many :projects, through: :consultant_projects
 	has_many :billings
 
+	validates_presence_of :first_name, :last_name, :sei_loc_id
+
 	accepts_nested_attributes_for :sei_loc
 	accepts_nested_attributes_for :consultant_projects
 	accepts_nested_attributes_for :projects
+	accepts_nested_attributes_for :billings
 end

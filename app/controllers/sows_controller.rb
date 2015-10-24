@@ -69,6 +69,7 @@ class SowsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sow_params
-      params[:sow]
+      params.require(:sow).permit(:begin_date, :end_date, :sow_hours, :bill_rate, :name)
+    
     end
 end

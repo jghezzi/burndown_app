@@ -8,7 +8,11 @@ Rails.application.routes.draw do
 
   root 'consultants#index'
 
-  resources :billings
+  resources :billings do
+     member do
+      get 'bill'
+    end
+  end
 
   resources :consultant_projects do
     member do

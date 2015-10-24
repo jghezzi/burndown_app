@@ -1,0 +1,7 @@
+= @consultant.last_name
+=	form_for @billing do |f|
+	= "Project"
+	= f.collection_select :project_id, @consultant.projects, :id, :name
+	= "SOW"
+	= f.collection_select :sow_id, @consultant.sows, :id, :name
+	
