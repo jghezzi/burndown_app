@@ -12,6 +12,7 @@ gem 'momentjs-rails', '>= 2.9.0'
 gem 'compass-rails' # you need this or you get an err
 gem 'zurb-foundation', '~> 4.3.1'
 gem 'foundation-icons-sass-rails'
+gem "simple_calendar", "~> 2.0"
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

@@ -14,7 +14,10 @@
       - @consultants.each do |consultant|
         .large-4.small-6.columns
           .panel-small
-            = consultant.projects.last.name
+            - if consultant.projects.blank? then
+              - @latest_project = "Bench"
+            - else @latest_project = consultant.projects.last.name
+            = @latest_project
           %img{:src => "http://nicenicejpg.com/1000/1000"}/
           .panel
             %ul.button-group.radius
@@ -26,7 +29,7 @@
                   %i.fi-.fi-torsos-all.bigger-icon             
 
               %li
-                %a.button.radius.teeny{:href => "/billings/#{consultant.id}/bill", :title => "Record Billing"}
+                %a.button.radius.teeny{href: billing_path(consultant), :title => "Record Billing"}
                   %i.fi-dollar.bigger-icon
             = consultant.first_name + " " + consultant.last_name
             %br/

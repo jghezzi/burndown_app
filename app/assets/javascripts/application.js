@@ -12,9 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require turbolinks
+//= require billings
 //= require foundation
 //= require moment
-//= require turbolinks
+
 
 
 

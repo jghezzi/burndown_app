@@ -13,6 +13,8 @@
     = f.select :client_id, Client.all.collect { |c| [c.name, c.id]}
     Select Project
     = f.select :project_id, Project.all.collect { |p| [p.name, p.id]}
+    SOW Name
+    = f.text_field :name
     From
     = f.date_field :begin_date
     To

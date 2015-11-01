@@ -8,6 +8,12 @@ class BillingsController < ApplicationController
   def bill
     @consultant = Consultant.find(params[:id])
     @billing = Billing.new
+    @my_projects = @consultant.projects
+    
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
 

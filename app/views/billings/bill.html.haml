@@ -1,7 +1,12 @@
+%a.button.radius.teeny.warning{:onclick => "myPopUp(this)"}
 = @consultant.last_name
 =	form_for @billing do |f|
 	= "Project"
-	= f.collection_select :project_id, @consultant.projects, :id, :name
+	= f.collection_select :project_id, @my_projects, :id, :name
 	= "SOW"
-	= f.collection_select :sow_id, @consultant.sows, :id, :name
-	
+	= f.select :sow_id, Sow.all.collect { |s| [s.name, s.id]}
+	= month_calendar do |date|
+		= date.day 
+		= f.hidden_field :bill_date, :value => date
+		= f.text_field :hours
+	= f.submit
