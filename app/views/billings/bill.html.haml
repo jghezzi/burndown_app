@@ -2,9 +2,9 @@
 = @consultant.last_name
 =	form_for @billing do |f|
 	= "Project"
-	= f.collection_select :project_id, @my_projects, :id, :name
+	= f.collection_select :project_id, @my_projects, :id, :name, include_blank: true
 	= "SOW"
-	= f.select :sow_id, Sow.all.collect { |s| [s.name, s.id]}
+	= f.grouped_collection_select :sow_id, @my_projects, :sows, :name, :id, :name, include_blank: true
 	= month_calendar do |date|
 		= date.day 
 		= f.hidden_field :bill_date, :value => date

@@ -1,7 +1,9 @@
-console.log("Hello")
+sows = $('#billing_sow_id').html()
 
-$ ->
-	console.log("Dom Ready")
-	@myPopUp = () ->
-		console.log("Got it")
-
+$('#billing_project_id').change ->
+	project = $('#billing_project_id :selected').text()
+	options = $(sows).filter("optgroup[label=#{project}]").html()	
+	if options
+		$('#billing_sow_id').html(options)
+	else
+		$('#billing_sow_id').empty()
