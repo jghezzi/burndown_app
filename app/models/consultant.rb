@@ -6,6 +6,8 @@ class Consultant < ActiveRecord::Base
 	has_many :consultant_projects
 	has_many :projects, through: :consultant_projects
 	has_many :billings
+	has_many :consultant_sows
+	has_many :sows, through: :consultant_sows
 
 	validates_presence_of :first_name, :last_name, :sei_loc_id
 

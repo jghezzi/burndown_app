@@ -1,0 +1,24 @@
+.row
+	.large-4.small-12.columns
+		.hide-for-small.panel
+			%h3 SEI Consultants
+			%h5.subheader
+				Here are some consultants.
+		%a{:href => "#"}
+			.panel.callout.radius
+				%h6 ALERTS
+	.large-8.columns
+		.row
+			= form_for @consultant do |f|
+				- @consultant.projects.each do |cp|
+					.row
+						Project:
+						= cp.id
+						= cp.name
+						%br/
+						.row
+							SOW:
+							- @consultant.sows.each do |cs|
+								= cs.id
+								= cs.name
+								%br/

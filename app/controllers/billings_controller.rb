@@ -9,6 +9,8 @@ class BillingsController < ApplicationController
     @consultant = Consultant.find(params[:id])
     @billing = Billing.new
     @my_projects = @consultant.projects
+    puts @my_projects
+
     
     respond_to do |format|
       format.js
@@ -18,7 +20,10 @@ class BillingsController < ApplicationController
 
 
   def index
-    @billings = Billing.all
+    @consultant = Consultant.find(params[:consultant_id])
+    @project = Project.find(params[:project_id])
+    @sow = Sow.find(params[:sow_id])
+    @billings = @consultant.billings.where(project_id: @project.id, sow_id: @sow.id)
   end
 
   # GET /billings/1
@@ -28,7 +33,10 @@ class BillingsController < ApplicationController
 
   # GET /billings/new
   def new
-    @billing = Billing.new
+    @consultant = Consultant.find(params[:consultant_id])
+    @project = Project.find(params[:project_id])
+    @sow = Sow.find(params[:sow_id])
+    @billings = @consultant.billings.where(project_id: @project.id, sow_id: @sow.id)
   end
 
   # GET /billings/1/edit
@@ -53,7 +61,7 @@ class BillingsController < ApplicationController
 
   # PATCH/PUT /billings/1
   # PATCH/PUT /billings/1.json
-  def update
+  def update2
     respond_to do |format|
       if @billing.update(billing_params)
         format.html { redirect_to @billing, notice: 'Billing was successfully updated.' }
@@ -64,6 +72,13 @@ class BillingsController < ApplicationController
       end
     end
   end
+
+  def update
+    params['billing'].keys.each do |id|
+    @billing = Billing.find(id.to_i)
+    @billing.update_attributes(billing_params(id))
+  end
+end
 
   # DELETE /billings/1
   # DELETE /billings/1.json
@@ -82,7 +97,7 @@ class BillingsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def billing_params
-      params.require(:billing).permit(:bill_date, :hours, :project_id, :consultant_id, :sow_id)
+    def billing_params(id)
+      params.require(:billing).fetch(id).permit(:bill_date, :hours, :project_id, :consultant_id, :sow_id)
     end
 end

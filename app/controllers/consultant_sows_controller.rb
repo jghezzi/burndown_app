@@ -7,6 +7,13 @@ class ConsultantSowsController < ApplicationController
     @consultant_sows = ConsultantSow.all
   end
 
+  def assign
+    @consultant = Consultant.find(params[:id])
+    @consultant_sows = @consultant.sows
+    @consultant_projects = @consultant.projects
+    @all_sows = Sow.all
+  end
+
   # GET /consultant_sows/1
   # GET /consultant_sows/1.json
   def show

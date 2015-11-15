@@ -1,20 +1,13 @@
-%h1 Listing billings
-%table
-  %thead
+= form_for :billing, :url =>  "/consultants/#{@consultant.id}/projects/#{@project.id}/sows/#{@sow.id}/billings/1", :html => { :method => :put } do
+
+  %table
     %tr
-      %th Date from
-      %th Date to
+      %th Bill Date
       %th Hours
-      %th Project
-      %th{:colspan => "3"}
-  %tbody
     - @billings.each do |billing|
-      %tr
-        %td= billing.bill_date
-        %td= billing.hours
-        %td= billing.project_id
-        %td= link_to 'Show', billing
-        %td= link_to 'Edit', edit_billing_path(billing)
-        %td= link_to 'Destroy', billing, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Billing', new_billing_path
+      = fields_for "billing[]", billing do |billing_fields|
+        %tr
+          %td= billing.bill_date
+          %td= billing_fields.text_field :hours
+  .actions
+    = submit_tag

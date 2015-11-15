@@ -4,7 +4,9 @@ class SowsController < ApplicationController
   # GET /sows
   # GET /sows.json
   def index
-    @sows = Sow.all
+    @consultant = Consultant.find(params[:consultant_id])
+    @project = Project.find(params[:project_id])
+    @project_sows = @project.sows
   end
 
   # GET /sows/1
@@ -51,6 +53,7 @@ class SowsController < ApplicationController
     end
   end
 
+
   # DELETE /sows/1
   # DELETE /sows/1.json
   def destroy
@@ -69,7 +72,7 @@ class SowsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sow_params
-      params.require(:sow).permit(:begin_date, :end_date, :sow_hours, :bill_rate, :name)
+      params.require(:sow).permit(:hours, :project_id, :consultant_id, :bill_date, :sow_id)
     
     end
 end

@@ -8,15 +8,14 @@
       %th
 
   %tbody
-    - @sows.each do |sow|
+    - @project_sows.each do |sow|
       %tr
+        %td= sow.name
         %td= sow.begin_date
         %td= sow.end_date
         %td= sow.sow_hours
         %td= sow.bill_rate
-        - sow.projects.each do |project|
-          %td= project.name
-        %td= link_to 'Show', sow
+        %td= link_to 'Bill', consultant_project_sow_billings_path(@consultant.id, @project.id, sow.id)
         %td= link_to 'Edit', edit_sow_path(sow)
         %td= link_to 'Destroy', sow, :method => :delete, :data => { :confirm => 'Are you sure?' }
 

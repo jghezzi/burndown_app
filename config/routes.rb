@@ -1,18 +1,14 @@
 Rails.application.routes.draw do
   
-  resources :consultant_sows
+  resources :consultant_sows do
+    member do
+      get 'assign'
+    end
+  end
 
   resources :client_consultants
 
-  resources :sows
-
   root 'consultants#index'
-
-  resources :billings do
-     member do
-      get 'bill'
-    end
-  end
 
   resources :consultant_projects do
     member do
@@ -22,9 +18,14 @@ Rails.application.routes.draw do
 
   resources :sei_locs
 
-  resources :consultants
-
-  resources :projects
+  resources :consultants do
+    resources :projects do
+      resources :sows do
+        resources :billings do
+        end
+      end
+    end
+  end
 
   resources :clients
 

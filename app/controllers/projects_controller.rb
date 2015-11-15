@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   
 
   def index
-    @projects = Project.all
+    @consultant = Consultant.find(params[:consultant_id])
   end
 
   # GET /projects/1

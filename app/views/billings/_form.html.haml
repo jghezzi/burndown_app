@@ -1,8 +1,8 @@
-= form_for(@billing) do |f|
+= form_for(@billings) do |f|
   - if @billing.errors.any?
     #error_explanation
       %h2
-        = pluralize(@billing.errors.count, "error")
+        = pluralize(@billings.errors.count, "error")
         prohibited this billing from being saved:
       %ul
         - @billing.errors.full_messages.each do |message|
@@ -13,18 +13,13 @@
   %br/
   %br/
   .field
-    = f.label "Consultant"
-    = f.select :consultant_id, Consultant.all.collect { |c| [(c.last_name + ", " + c.first_name), c.id]}
-
-    = f.label "Project"
-    = f.select :project_id, Project.all.collect { |p| [p.name, p.id]}
-    
+    = @consultant.last_name
+    = @project.name
+    = @sow.name
     %br/
-    - 5.times do
-      = f.label :bill_date
-      = f.date_select :bill_date
-      = f.label :hours
-      = f.text_field :hours
+    - @billings.each do |billing|
+      = check_box_tag "billing_ids[]", billing.id
+      = billing.bill_date
   .field
 
   .actions

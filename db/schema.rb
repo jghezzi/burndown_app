@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151025220746) do
+ActiveRecord::Schema.define(version: 20151106210312) do
 
   create_table "billings", force: true do |t|
     t.float    "hours"
@@ -39,6 +39,13 @@ ActiveRecord::Schema.define(version: 20151025220746) do
   create_table "consultant_projects", force: true do |t|
     t.integer  "consultant_id"
     t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "consultant_sows", force: true do |t|
+    t.integer  "consultant_id"
+    t.integer  "sow_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
